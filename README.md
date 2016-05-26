@@ -1,7 +1,8 @@
 combineSectionReducers
 ====
-A best way to create a big reducer.
+A best way to create a big reducer.  
 
+[![npm version](https://badge.fury.io/js/combine-section-reducers.svg)](https://badge.fury.io/js/combine-section-reducers)
 ## Installation
 `npm install --save combine-section-reducers`
 
