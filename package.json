@@ -1,0 +1,41 @@
+{
+  "name": "combine-section-reducers",
+  "version": "1.0.0",
+  "description": "Combines section reducers",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "test": "mocha --compilers js:babel-register --recursive ./test/*.spec.js",
+    "test:watch": "npm test -- --watch",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryo33/combine-section-reducer.git"
+  },
+  "keywords": [
+    "combine",
+    "redux",
+    "reducer"
+  ],
+  "author": "Ryo33",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/ryo33/combine-section-reducer/issues"
+  },
+  "homepage": "https://github.com/ryo33/combine-section-reducer#readme",
+  "dependencies": {
+    "is-valid-redux-reducer": "^1.0.1"
+  }
+}
