@@ -25,7 +25,6 @@ export default function combineSectionReducers(reducers) {
         const previousStateForKey = state(key)
         const nextStateForKey = reducers[key](previousStateForKey, action, entireState)
         nextState[key] = nextStateForKey
-        console.log(nextStateForKey, previousStateForKey)
         hasChanged = hasChanged || nextStateForKey !== previousStateForKey
       }
     }
