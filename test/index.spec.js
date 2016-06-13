@@ -1,4 +1,5 @@
 import { expect } from 'chai'
+import { combineReducers } from 'redux'
 import combineSectionReducers from '../src/index.js'
 
 describe('combineSectionReducers', () => {
@@ -187,5 +188,29 @@ describe('combineSectionReducers', () => {
     const state = { a: 0, b: 1, c: 2 }
     expect({ a: 0, b: 1, c: 2 }).not.to.equal({ a: 0, b: 1, c: 2 })
     expect(reducer(state, {type: 'DO_NOTHING'}, state)).to.equal(state)
+  })
+
+  it('should work with combineReducers', () => {
+    const reducerA = (state = 0, action) => state
+    const reducerB = (state = 1, action) => state
+    const reducerC = (state = 2, action) => state
+    const reducer1 = combineSectionReducers({
+      a: combineReducers({
+        a: reducerA,
+        b: reducerB,
+        c: reducerC
+      }),
+      b: reducerA
+    })
+    expect(reducer1(undefined, { type: 'INIT' })).to.eql({a: {a: 0, b: 1, c: 2}, b: 0})
+    const reducer2 = combineReducers({
+      a: combineReducers({
+        a: reducerA,
+        b: reducerB,
+        c: reducerC
+      }),
+      b: reducerA
+    })
+    expect(reducer2(undefined, { type: 'INIT' })).to.eql({a: {a: 0, b: 1, c: 2}, b: 0})
   })
 })
