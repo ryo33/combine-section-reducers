@@ -37,6 +37,6 @@
   },
   "homepage": "https://github.com/ryo33/combine-section-reducers#readme",
   "dependencies": {
-    "is-valid-redux-reducer": "^1.0.2"
+    "is-valid-redux-reducer": "^1.0.3"
   }
 }

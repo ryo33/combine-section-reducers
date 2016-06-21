@@ -14,10 +14,6 @@ describe('combineSectionReducers', () => {
       a: validReducer,
       b: (state, action) => state
     })).to.throw(Error)
-    expect(combineSectionReducers({
-      a: validReducer,
-      b: (state, action) => ({})
-    })).to.throw(Error)
   })
 
   it('should not throw a error when invalid reducer is not included', () => {
