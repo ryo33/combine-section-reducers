@@ -1,6 +1,6 @@
 {
   "name": "combine-section-reducers",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Combines section reducers",
   "main": "./lib/index.js",
   "files": [
