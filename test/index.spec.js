@@ -209,4 +209,28 @@ describe('combineSectionReducers', () => {
     })
     expect(reducer2(undefined, { type: 'INIT' })).to.eql({a: {a: 0, b: 1, c: 2}, b: 0})
   })
+
+  it('should keep state properties not specified in sections when do nothing', () => {
+    const reducerA = (state = 0, action) => state
+    const reducer = combineSectionReducers({
+      a: reducerA,
+    })
+    const state = { a: 0, b: 1 }
+    expect(reducer(state, {type: 'DO_NOTHING'}, state)).to.equal(state)
+  })
+
+  it('should keep state properties not specified in sections when property changed', () => {
+    const reducer = combineSectionReducers({
+      a: reducerA,
+    })
+    const state = { a: [0], b: 1 }
+    expect(reducer(state, {type: 'ADD_TO_A', payload: 'a'}, state)).to.eql({
+        a: [
+            0,
+            'a',
+            state
+        ],
+        b: 1
+    })
+  })
 })
